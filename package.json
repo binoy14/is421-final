@@ -1,0 +1,40 @@
+{
+  "name": "Mean-Machine",
+  "version": "1.0.0",
+  "description": "This is a code from the mean machine book",
+  "main": "server.js",
+  "scripts": {
+    "test": "gulp",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binoy14/Mean-Machine-Code.git"
+  },
+  "engines": {
+    "node": "~0.12.0",
+    "npm": "~2.5.1"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "Binoy Patel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binoy14/Mean-Machine-Code/issues"
+  },
+  "homepage": "https://github.com/binoy14/Mean-Machine-Code",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.12.0",
+    "express": "^4.12.2",
+    "firebase": "^2.3.2",
+    "gulp-jshint": "^1.9.2",
+    "jsonwebtoken": "^4.0.0",
+    "mongoose": "^4.3.1",
+    "morgan": "^1.5.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  }
+}
