@@ -1,14 +1,15 @@
 <div class="jumbotron text-center">
-    <h1>Welcome to the User CRM!</h1>
+    <h1>Welcome to the Kitty Parser!</h1>
 
     <div ng-if="!main.loggedIn">
-        <p>Login to see manage your users.</p>
+        <p>Get your form responses without the need of a backend</p>
         <a href="/login" class="btn btn-primary">Login</a>
         <a href="/users/create" class="btn btn-primary">Sign Up</a>
     </div>
 
     <div ng-if="main.loggedIn">
-        <p>Manage your users.</p>
-        <a href="/users" class="btn btn-primary">View Users</a>
+        <p>View your responses</p>
+        <a ng-href="/responses/{{main.user._id}}" class="btn btn-primary">View Responses</a>
+        <a ng-href="/code/{{main.user._id}}" class="btn btn-primary">Get Code</a>
     </div>
 </div>

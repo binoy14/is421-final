@@ -31,8 +31,6 @@ angular.module('responseCtrl', [])
 			}
 		});
 	};
-
-
 })
 
 .controller('ModalInstanceCtrl', function($uibModal, $uibModalInstance, items, $http){

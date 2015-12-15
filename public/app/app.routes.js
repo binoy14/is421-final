@@ -44,6 +44,12 @@ angular.module('app.routes', ['ngRoute'])
     	templateUrl: 'app/views/pages/responses.html',
     	controller: 'responseController',
     	controllerAs: 'responses'
+    })
+
+    .when('/code/:user_id', {
+    	templateUrl : 'app/views/pages/code.html',
+    	controller: 'mainController',
+    	controllerAs: 'main'
     });
 
     $locationProvider.html5Mode(true);
