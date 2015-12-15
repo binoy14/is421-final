@@ -5,6 +5,7 @@ var Firebase = require('firebase');
 var jwt = require('jsonwebtoken');
 var config = require('../../config');
 var ref = new Firebase("https://is421.firebaseio.com/");
+var sendgrid = require('sendgrid')(config.sendgridkey);
 
 // super secret for creating tokens
 var superSecret = config.secret;
@@ -112,14 +113,9 @@ module.exports = function(app, express) {
     	})
     })
     .post(function(req, res){
-    	console.log(req.params.user_id);
-    	ref.child("responses").child(req.params.user_id).push(req.body, function(err){
-    		if(err) {
-    			res.send(err);
-    		} else {
-    			res.json({success : true});
-    		}
-    	});
+    	ref.child("responses").child(req.params.user_id).push(req.body);
+    	res.set('Connection', 'close');
+    	res.end();
     })
 
     // route middleware to verify a token
@@ -229,6 +225,18 @@ module.exports = function(app, express) {
         	res.send(req.decoded);
         })
     });
+
+    apiRouter.post('/email', function(req, res){
+    	sendgrid.send({
+    		to : req.body.email,
+    		from : 'noreply@kittyparser.com',
+    		subject : 'Response',
+    		text : req.body.message
+    	}, function(err, json) {
+    		if(err) res.send(err);
+    		res.send(json);
+    	})
+    })
 
     return apiRouter;
 };

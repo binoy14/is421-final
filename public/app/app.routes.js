@@ -40,8 +40,10 @@ angular.module('app.routes', ['ngRoute'])
         controllerAs: 'user'
     })
 
-    .when('/responses', {
-    	templateUrl: 'app/view/pages/responses.html'
+    .when('/responses/:user_id', {
+    	templateUrl: 'app/views/pages/responses.html',
+    	controller: 'responseController',
+    	controllerAs: 'responses'
     });
 
     $locationProvider.html5Mode(true);

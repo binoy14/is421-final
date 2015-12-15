@@ -4,7 +4,11 @@ angular.module('userApp', [
         'authService',
         'mainCtrl',
         'userService',
-        'userCtrl'
+        'userCtrl',
+        'responseCtrl',
+        'responseService',
+        'emailmodal',
+        'ui.bootstrap'
     ])
     .config(function($httpProvider) {
         $httpProvider.interceptors.push('AuthInspector');

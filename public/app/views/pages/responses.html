@@ -1,18 +1,21 @@
 <table class="table table-bordered table-striped">
 	<thead>
 		<tr>
-			<th>_id</th>
 			<th>Name</th>
-			<th>Username</th>
-			<th class="col-sm-2"></th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th class="col-lg-7">Message</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 		<!-- LOOP OVER THE USERS -->
-		<tr>
-			<!-- <td>{{ person._id }}</td>
-			<td>{{ person.name }}</td>
-			<td>{{ person.username }}</td> -->
+		<tr ng-repeat="(key, val) in responses.resp">
+			<td>{{val.name}}</td>
+			<td>{{val.phone}}</td>
+			<td>{{val.email}}</td>
+			<td>{{val.message}}</td>
+			<td><a ng-click="responses.sendEmail(val.name, val.email)" class="btn btn-primary">Send Email</a></td>
 		</tr>
 	</tbody>
 </table>
