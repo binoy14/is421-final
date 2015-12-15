@@ -111,6 +111,7 @@ module.exports = function(app, express) {
     	ref.child("responses/" + req.params.user_id).on("value", function(snap) {
     		res.json(snap.val());
     	})
+    	res.set('Connection', 'close');
     })
     .post(function(req, res){
     	ref.child("responses").child(req.params.user_id).push(req.body);
